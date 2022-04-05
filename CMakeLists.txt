@@ -1,0 +1,135 @@
+cmake_minimum_required(VERSION 3.7)
+
+project(PCem)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake/modules)
+
+include(${CMAKE_SOURCE_DIR}/includes/includes.cmake)
+
+# TODO: This whole thing is jank, replace with a real way to determine cpu type
+if(WIN32)
+        if(${CMAKE_C_COMPILER} MATCHES ".*mingw32.*")
+                set(CMAKE_SYSTEM_PROCESSOR i386)
+        elseif(${CMAKE_SYSTEM_PROCESSOR} STREQUAL "AMD64")
+                set(CMAKE_SYSTEM_PROCESSOR x86_64)
+        endif()
+endif()
+
+set(PCEM_CPU_TYPE ${CMAKE_SYSTEM_PROCESSOR})
+# End of Jankness
+
+if(${PCEM_CPU_TYPE} STREQUAL "i386")
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -msse2")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -msse2")
+endif()
+
+set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -fomit-frame-pointer -mstackrealign -fno-strict-aliasing")
+set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -fomit-frame-pointer -mstackrealign -fno-strict-aliasing")
+
+set(PCEM_VERSION_STRING "vNext" CACHE STRING "PCem Version String")
+set(PCEM_DEFINES PCEM_VERSION_STRING="${PCEM_VERSION_STRING}")
+
+message("PCem ${PCEM_VERSION_STRING} - Build Type: ${CMAKE_BUILD_TYPE}")
+message("***************************************************************")
+message("OS Building For: ${CMAKE_SYSTEM_NAME}")
+message("System Processor: ${PCEM_CPU_TYPE}")
+message("***************************************************************")
+
+option(PLUGIN_ENGINE "Build PCem with plugin support" OFF)
+message("Plugin Support: ${PLUGIN_ENGINE}")
+
+option(USE_NETWORKING "Build PCem with networking support" OFF)
+message("Networking Support: ${USE_NETWORKING}")
+
+if(USE_NETWORKING)
+        option(USE_PCAP_NETWORKING "Build PCem with PCAP support" ON)
+        message("       PCAP Networking Support: ${USE_PCAP_NETWORKING}")
+endif()
+
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+        option(USE_ALSA "Build PCem with MIDI output using ALSA" OFF)
+        message("ALSA MIDI Support: ${USE_ALSA}")
+endif()
+
+option(USE_EXPERIMENTAL "Build PCem with experimental code" OFF)
+message("Experimental Modules: ${USE_EXPERIMENTAL}")
+
+if(USE_EXPERIMENTAL)
+        option(USE_EXPERIMENTAL_PGC "Build Professional Graphics Controller Support" OFF)
+        message("       PGC Support: ${USE_EXPERIMENTAL_PGC}")
+        option(USE_EXPERIMENTAL_PRINTER "Build Printer Support" OFF)
+        message("       Printer Support: ${USE_EXPERIMENTAL_PRINTER}")
+endif()
+
+if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "RelWithDebInfo")
+        message("Extra Debug Messages:")
+        option(PCEM_SLIRP_DEBUG "Build PCem with SLIRP_DEBUG debug output" OFF)
+        message("       SLIRP_DEBUG debug output: ${PCEM_SLIRP_DEBUG}")
+        option(PCEM_RECOMPILER_DEBUG "Build PCem with RECOMPILER_DEBUG debug output" OFF)
+        message("       RECOMPILER_DEBUG debug output: ${PCEM_RECOMPILER_DEBUG}")
+        option(PCEM_NE2000_DEBUG "Build PCem with NE2000_DEBUG debug output" OFF)
+        message("       NE2000_DEBUG debug output: ${PCEM_NE2000_DEBUG}")
+        option(PCEM_EMU8K_DEBUG_REGISTERS "Build PCem with EMU8K_DEBUG_REGISTERS debug output" OFF)
+        message("       EMU8K_DEBUG_REGISTERS debug output: ${PCEM_EMU8K_DEBUG_REGISTERS}")
+        option(PCEM_SB_DSP_RECORD_DEBUG "Build PCem with SB_DSP_RECORD_DEBUG debug output" OFF)
+        message("       SB_DSP_RECORD_DEBUG debug output: ${PCEM_SB_DSP_RECORD_DEBUG}")
+        option(PCEM_MACH64_DEBUG "Build PCem with MACH64_DEBUG debug output" OFF)
+        message("       MACH64_DEBUG debug output: ${PCEM_MACH64_DEBUG}")
+        option(PCEM_DEBUG_EXTRA "Build PCem with DEBUG_EXTRA debug output" OFF)
+        message("       DEBUG_EXTRA debug output: ${PCEM_DEBUG_EXTRA}")
+        option(PCEM_PRINTER_DEBUG "Build PCem with PRINTER_DEBUG debug output" OFF)
+        message("       PRINTER_DEBUG debug output: ${PCEM_PRINTER_DEBUG}")
+endif()
+message("***************************************************************")
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+	set(PCEM_SHARE_DIR "bin" CACHE STRING "PCem Share Directory")
+	set(PCEM_PLUGIN_DIR "bin/plugins" CACHE STRING "PCem Plugin Directory")
+	set(PCEM_BIN_DIR "bin" CACHE STRING "PCem Binary Directory")
+	set(PCEM_LIB_DIR "sdk/lib" CACHE STRING "PCem Library Directory")
+	set(PCEM_INCLUDE_DIR "sdk/include" CACHE STRING "PCem Include File Directory")
+else()
+	set(PCEM_SHARE_DIR "share/pcem" CACHE STRING "PCem Share Directory")
+	set(PCEM_PLUGIN_DIR "share/pcem/plugins" CACHE STRING "PCem Plugin Directory")
+	set(PCEM_BIN_DIR "bin" CACHE STRING "PCem Binary Directory")
+	set(PCEM_LIB_DIR "lib" CACHE STRING "PCem Library Directory")
+	set(PCEM_INCLUDE_DIR "include" CACHE STRING "PCem Include File Directory")
+endif()
+message("PCem Program Directories:")
+message("       PCem Share Directory: ${PCEM_SHARE_DIR}")
+message("       PCem Binary Directory: ${PCEM_BIN_DIR}")
+message("       PCem Library Directory: ${PCEM_LIB_DIR}")
+message("       PCem Plugin Directory: ${PCEM_PLUGIN_DIR}")
+message("       PCem Include File Directory: ${PCEM_INCLUDE_DIR}")
+message("***************************************************************")
+
+set(OpenGL_GL_PREFERENCE GLVND)
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIRS})
+
+find_package(OpenAL REQUIRED)
+include_directories(${OPENAL_INCLUDE_DIR})
+
+if(WIN32)
+        set(wxWidgets_CONFIGURATION mswu)
+endif()
+find_package(wxWidgets REQUIRED COMPONENTS core base xrc)
+include(${wxWidgets_USE_FILE})
+
+if(USE_ALSA)
+        find_package(ALSA REQUIRED)
+        include_directories(${ALSA_INCLUDE_DIRS})
+endif()
+
+if(USE_PCAP_NETWORKING)
+        find_package(PCAP REQUIRED)
+        include_directories(${PCAP_INCLUDE_DIR})
+endif()
+
+find_package(OpenGL REQUIRED)
+
+add_subdirectory(src)
+
+if(USE_EXPERIMENTAL)
+        add_subdirectory(experimental)
+endif()

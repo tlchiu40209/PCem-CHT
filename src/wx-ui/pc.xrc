@@ -1,0 +1,3911 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!-- http://docs.wxwidgets.org/trunk/overview_xrcformat.html -->
+<resource xmlns="http://www.wxwidgets.org/wxxrc" version="2.5.3.0">
+	<object class="wxBitmap" name="BITMAP_HARDDISK">icons/16x16/drive.png</object>
+	<object class="wxBitmap" name="BITMAP_FLOPPY">icons/16x16/diskette.png</object>
+	<object class="wxBitmap" name="BITMAP_CDROM">icons/16x16/cd.png</object>
+	<object class="wxToolBar" name="tool_bar">
+		<style>wxTB_FLAT|wxTB_NODIVIDER</style>
+		<object class="tool" name="TOOLBAR_RUN">
+       		<bitmap>icons/24x24/play.png</bitmap>
+        	<label>執行</label>
+       	</object>
+		<object class="tool" name="TOOLBAR_PAUSE">
+       		<bitmap>icons/24x24/pause.png</bitmap>
+        	<label>暫停</label>
+       	</object>
+		<object class="tool" name="TOOLBAR_STOP">
+       		<bitmap>icons/24x24/stop.png</bitmap>
+        	<label>停止</label>
+       	</object>
+		<object class="tool" name="TOOLBAR_RESET">
+       		<bitmap>icons/24x24/refresh.png</bitmap>
+        	<label>強制重新開機</label>
+       	</object>
+    </object>
+	<ids-range name="IDM_SCREENSHOT_FORMAT" start="950" />
+	<ids-range name="IDM_VID_RESOLUTION" start="990" />
+	<ids-range name="IDM_VID_FS" start="1000" />
+	<ids-range name="IDM_VID_FS_MODE" start="1100" />
+	<ids-range name="IDM_VID_SCALE" start="1200" />
+	<ids-range name="IDM_VID_SCALE_MODE" start="1300" />
+	<ids-range name="IDM_VID_RENDER_DRIVER" start="1400" />
+	<ids-range name="IDM_SND_BUF" start="2000" />
+	<ids-range name="IDM_SND_GAIN" start="2100" />
+	<ids-range name="IDM_VID_GL3_INPUT_STRETCH" start="3000" />
+	<ids-range name="IDM_VID_GL3_INPUT_SCALE" start="3100" />
+	<ids-range name="IDM_VID_GL3_SHADER_REFRESH_RATE" start="3200" />
+	<object class="wxMenuBar" name="status_menu">
+		<object class="wxMenu">
+			<label>選項(_O)</label>
+			<object class="wxMenuItem" name="IDM_DISC_ACTIVITY">
+				<label>碟片讀取狀態</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="wxMenuItem" name="IDM_MACHINE_MOUNT_PATHS">
+				<label>映像掛載路徑</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="wxMenuItem" name="IDM_SHOW_STATUS">
+				<label>機器狀態</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="wxMenuItem" name="IDM_SPEED_HISTORY">
+				<label>速度紀錄</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenuItem" name="IDM_SHOW_MACHINE_ON_START">
+				<label>啟動機器就顯示</label>
+				<checkable>1</checkable>
+			</object>
+		</object>
+		<object class ="wxMenu">
+			<label>設定(_C)</label>
+			<object class="wxMenuItem" name="IDM_CONFIG">
+				<label>這台機器</label>
+			</object>
+		</object>
+		<object class ="wxMenu">
+			<label>其他(_M)</label>
+			<object class="wxMenuItem" name="IDM_RESET_CONFIRMATION_DIALOGS">
+				<label>重設確認對話方塊(_R)</label>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenuItem" name="IDM_ABOUT">
+				<label>關於(_A)</label>
+			</object>
+		</object>
+	</object>
+	<object class="wxMenu" name="main_menu">
+		<object class="wxMenu">
+			<label>系統(_S)</label>
+			<object class="wxMenuItem" name="IDM_FILE_HRESET">
+				<label>強制重新開機(_H)</label>
+			</object>
+			<object class="wxMenuItem" name="IDM_FILE_RESET_CAD">
+				<label>_Ctrl+Alt+Del</label>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenuItem" name="IDM_FILE_EXIT">
+				<label>強制關機(_S)</label>
+			</object>
+		</object>
+		<object class="wxMenu">
+			<label>軟碟(_F)</label>
+			<object class="wxMenuItem" name="IDM_DISC_A">
+				<label>軟碟機 _A: 換碟片...</label>
+			</object>
+			<object class="wxMenuItem" name="IDM_DISC_B">
+				<label>軟碟機 _B: 換碟片...</label>
+			</object>
+			<object class="wxMenuItem" name="IDM_EJECT_A">
+				<label>軟碟機 A: 退片(_E)</label>
+			</object>
+			<object class="wxMenuItem" name="IDM_EJECT_B">
+				<label>軟碟機 B: 退片</label>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenuItem" name="IDM_BPB_DISABLE">
+				<label>停用 BPB 檢查</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenuItem" name="IDM_DISC_CREATE">
+				<label>建立空的軟碟映像...</label>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenuItem" name="IDM_DISC_ZIP">
+				<label>載入 _ZIP 碟...</label>
+			</object>
+			<object class="wxMenuItem" name="IDM_EJECT_ZIP">
+				<label>退出 ZIP 碟</label>
+			</object>
+		</object>
+		<object class="wxMenu" name="IDM_CDROM">
+			<label>光碟(_C)</label>
+			<object class="wxMenuItem" name="IDM_CDROM_IMAGE_LOAD">
+				<label>載入光碟映像(_L)...</label>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenuItem" name="IDM_CDROM_EMPTY">
+				<label>空片(_E)</label>
+				<radio>1</radio>
+			</object>
+			<object class="wxMenuItem" name="IDM_CDROM_IMAGE">
+				<label>掛載(_I)...</label>
+				<radio>1</radio>
+			</object>
+		</object>
+		<object class="wxMenu" name="IDM_CASSETTE">
+			<label>磁帶(_A)</label>
+			<object class="wxMenuItem" name="IDM_CASSETTE_LOAD">
+				<label>載入磁帶映像(_L)...</label>
+			</object>
+			<object class="wxMenuItem" name="IDM_CASSETTE_EJECT">
+				<label>退出磁帶(_E)</label>
+			</object>
+		</object>
+		<object class="wxMenu">
+			<label>顯示(_D)</label>
+			<object class="wxMenu">
+				<label>解析度</label>
+				<object class="wxMenuItem" name="IDM_VID_RESOLUTION[0]">
+					<label>由虛擬機決定(_O)</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_RESOLUTION[1]">
+					<label>自由拉伸(_R)</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_RESOLUTION[2]">
+					<label>自訂(_C)</label>
+					<radio>1</radio>
+				</object>
+				<object class="separator"/>
+				<object class="wxMenuItem" name="IDM_VID_RESOLUTION_CUSTOM">
+					<label>設定自訂解析度(_S)...</label>
+				</object>
+			</object>
+			<object class="wxMenuItem" name="IDM_VID_REMEMBER">
+				<label>儲存自訂解析度 &amp;&amp; 位置</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="separator" />
+			<object class="wxMenuItem" name="IDM_VID_FULLSCREEN_TOGGLE">
+				<label>進入全螢幕\tCtrl+Alt+PageDown</label>
+			</object>
+			<object class="wxMenuItem" name="IDM_VID_FULLSCREEN">
+				<label>抓取輸入裝置後自動全螢幕</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenu">
+				<label>全螢幕模式</label>
+				<object class="wxMenuItem" name="IDM_VID_FS_MODE[0]">
+					<label>無邊線(_B)</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_FS_MODE[1]">
+					<label>獨佔式(_E)</label>
+					<radio>1</radio>
+				</object>
+			</object>
+			<object class="wxMenu" name="IDM_VID_RENDER_DRIVER">
+				<label>渲染器驅動程式(_R)</label>
+				<object class="wxMenuItem" name="IDM_VID_RENDER_DRIVER[0]">
+					<label>自動選取</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_RENDER_DRIVER[1]">
+					<label>Direct3D</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_RENDER_DRIVER[2]">
+					<label>OpenGL</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_RENDER_DRIVER[6]">
+					<label>OpenGL 3.0</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_RENDER_DRIVER[5]">
+					<label>軟體模擬</label>
+					<radio>1</radio>
+				</object>
+			</object>
+			<object class="wxMenuItem" name="IDM_VID_VSYNC">
+				<label>垂直同步(_V)</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="wxMenuItem" name="IDM_VID_LOST_FOCUS_DIM">
+				<label>若失去聚焦則調暗顯示(_D)</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="wxMenuItem" name="IDM_VID_ALTERNATIVE_UPDATE_LOCK">
+				<label>替代式 update-lock</label>
+				<checkable>1</checkable>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenu">
+				<label>放縮過濾器</label>
+				<object class="wxMenuItem" name="IDM_VID_SCALE_MODE[0]">
+					<label>鄰近(_N)</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_SCALE_MODE[1]">
+					<label>線性(_L)</label>
+					<radio>1</radio>
+				</object>
+			</object>
+			<object class="wxMenu">
+				<label>輸出影像拉伸模式</label>
+				<object class="wxMenuItem" name="IDM_VID_FS[0]">
+					<label>不拉伸(_N)</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_FS[1]">
+					<label>_4:3</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_FS[2]">
+					<label>方形象素(_S)</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_FS[3]">
+					<label>整數放大(_I)</label>
+					<radio>1</radio>
+				</object>
+			</object>
+			<object class="wxMenu" name="IDM_VID_SCALE_MENU">
+				<label>輸出影像放大倍數</label>
+				<object class="wxMenuItem" name="IDM_VID_SCALE[0]">
+					<label>0.5x</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_SCALE[1]">
+					<label>1x</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_SCALE[2]">
+					<label>1.5x</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_SCALE[3]">
+					<label>2x</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_SCALE[4]">
+					<label>2.5x</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_SCALE[5]">
+					<label>3x</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_SCALE[6]">
+					<label>3.5x</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_VID_SCALE[7]">
+					<label>4x</label>
+					<radio>1</radio>
+				</object>
+			</object>
+			<object class="separator"/>
+			<object class="wxMenu" name="IDM_VID_GL3">
+				<label>OpenGL 3.0 渲染器</label>
+				<object class="wxMenu">
+					<label>輸入拉伸模式</label>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_STRETCH[0]">
+						<label>不拉伸(_N)</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_STRETCH[1]">
+						<label>_4:3</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_STRETCH[2]">
+						<label>方形象素(_S)</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_STRETCH[3]">
+						<label>整數放大(_I)</label>
+						<radio>1</radio>
+					</object>
+				</object>
+				<object class="wxMenu">
+					<label>輸入影像放大倍數</label>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_SCALE[0]">
+						<label>0.5x</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_SCALE[1]">
+						<label>1x</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_SCALE[2]">
+						<label>1.5x</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_SCALE[3]">
+						<label>2x</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_SCALE[4]">
+						<label>2.5x</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_SCALE[5]">
+						<label>3x</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_SCALE[6]">
+						<label>3.5x</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_INPUT_SCALE[7]">
+						<label>4x</label>
+						<radio>1</radio>
+					</object>
+				</object>
+				<object class="wxMenu">
+					<label>渲染器重新整理頻率</label>
+					<object class="wxMenuItem" name="IDM_VID_GL3_SHADER_REFRESH_RATE[0]">
+						<label>與虛擬機相同</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_SHADER_REFRESH_RATE[10]">
+						<label>10 hz</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_SHADER_REFRESH_RATE[25]">
+						<label>25 hz</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_SHADER_REFRESH_RATE[30]">
+						<label>30 hz</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_SHADER_REFRESH_RATE[50]">
+						<label>50 hz</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_SHADER_REFRESH_RATE[60]">
+						<label>60 hz</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_SHADER_REFRESH_RATE[72]">
+						<label>72 hz</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_VID_GL3_SHADER_REFRESH_RATE[85]">
+						<label>85 hz</label>
+						<radio>1</radio>
+					</object>
+				</object>
+				<object class="separator"/>
+				<object class="wxMenuItem" name="IDM_VID_GL3_SHADER_MANAGER">
+					<label>渲染器管理</label>
+				</object>
+			</object>
+		</object>
+		<object class="wxMenu">
+			<label>音效(_S)</label>
+			<object class="wxMenu">
+				<label>快取長度(_B)</label>
+				<object class="wxMenuItem" name="IDM_SND_BUF[0]">
+					<label>_50 ms</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_BUF[1]">
+					<label>_100 ms</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_BUF[2]">
+					<label>_200 ms</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_BUF[3]">
+					<label>_400 ms</label>
+					<radio>1</radio>
+				</object>
+			</object>
+			<object class="wxMenu">
+				<label>輸出音量(_O)</label>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[0]">
+					<label>正常(_N)</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[1]">
+					<label>+_2 dB</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[2]">
+					<label>+_4 dB</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[3]">
+					<label>+_6 dB</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[4]">
+					<label>+_8 dB</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[5]">
+					<label>+_10 dB</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[6]">
+					<label>+12 dB</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[7]">
+					<label>+14 dB</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[8]">
+					<label>+16 dB</label>
+					<radio>1</radio>
+				</object>
+				<object class="wxMenuItem" name="IDM_SND_GAIN[9]">
+					<label>+18 dB</label>
+					<radio>1</radio>
+				</object>
+			</object>
+		</object>
+		<object class="wxMenu">
+			<label>其他(_M)</label>
+			<object class="wxMenu">
+				<label>螢幕截圖(_S)</label>
+				<object class="wxMenuItem" name="IDM_SCREENSHOT">
+					<label>擷取現在的畫面(_T)\tCtrl+Alt+PageUp</label>
+				</object>
+				<object class="wxMenu">
+					<label>檔案格式(_F)</label>
+					<object class="wxMenuItem" name="IDM_SCREENSHOT_FORMAT[0]">
+						<label>PNG</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_SCREENSHOT_FORMAT[1]">
+						<label>TIFF</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_SCREENSHOT_FORMAT[2]">
+						<label>BMP</label>
+						<radio>1</radio>
+					</object>
+					<object class="wxMenuItem" name="IDM_SCREENSHOT_FORMAT[3]">
+						<label>JPG</label>
+						<radio>1</radio>
+					</object>
+				</object>
+				<object class="wxMenuItem" name="IDM_SCREENSHOT_FLASH">
+					<label>擷取時閃光</label>
+					<checkable>1</checkable>
+				</object>
+			</object>
+			<object class="wxMenuItem" name="IDM_STATUS">
+				<label>這台虛擬機器(_M)</label>
+			</object>
+		</object>
+	</object>
+
+	<ids-range name="IDC_HDPANEL" start="10" />
+	<ids-range name="IDC_COMBODRIVETYPE" start="100" />
+	<ids-range name="IDC_EDIT_FN" start="300" />
+	<ids-range name="IDC_FILE" start="400" />
+	<ids-range name="IDC_EJECT" start="500" />
+	<ids-range name="IDC_NEW" start="600" />
+	<ids-range name="IDC_EDIT_SPT" start="700" />
+	<ids-range name="IDC_EDIT_HPC" start="800" />
+	<ids-range name="IDC_EDIT_CYL" start="900" />
+	<ids-range name="IDC_TEXT_SIZE" start="1000" />
+	<ids-range name="IDC_HDD_LABEL" start="1100" />
+
+	<object class="wxDialog" name="ConfigureDlg">
+		<style>wxDEFAULT_DIALOG_STYLE</style>
+		<title>設定 PCem</title>
+		<centered>1</centered>
+		<object class="wxPanel" name="ROOT_PANEL">
+		<object class="wxFlexGridSizer">
+			<rows>2</rows>
+			<cols>2</cols>
+			<vgap>0</vgap>
+			<hgap>0</hgap>
+			<growablecols></growablecols>
+			<growablerows></growablerows>
+			<object class="sizeritem">
+				<option>0</option>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxListCtrl" name="IDC_PAGESELECTION">
+					<style>wxLC_REPORT|wxLC_NO_HEADER|wxLC_SINGLE_SEL</style>
+					<object class="listcol">
+						<text>Page Name</text>
+						<width>250</width>
+					</object>
+					<object class="listitem">
+						<text>主機板</text>
+						<image-small>0</image-small>
+					</object>
+					<object class="listitem">
+						<text>顯示卡</text>
+						<image-small>1</image-small>
+					</object>
+					<object class="listitem">
+						<text>音效卡</text>
+						<image-small>2</image-small>
+					</object>
+					<object class="listitem">
+						<text>儲存裝置</text>
+						<image-small>3</image-small>
+					</object>
+					<object class="listitem">
+						<text>並列埠</text>
+						<image-small>4</image-small>
+					</object>
+					<object class="listitem">
+						<text>滑鼠</text>
+						<image-small>5</image-small>
+					</object>
+					<object class="listitem">
+						<text>遊戲搖桿</text>
+						<image-small>6</image-small>
+					</object>
+					<object class="listitem">
+						<text>網路裝置</text>
+						<image-small>7</image-small>
+					</object>
+					<imagelist-small>
+						<size>16,16</size>
+						<bitmap>icons/16x16/motherboard.png</bitmap>
+						<bitmap>icons/16x16/video_mode.png</bitmap>
+						<bitmap>icons/16x16/sound.png</bitmap>
+						<bitmap>icons/16x16/drive.png</bitmap>
+						<bitmap>icons/16x16/port.png</bitmap>
+						<bitmap>icons/16x16/mouse_pc.png</bitmap>
+						<bitmap>icons/16x16/joystick.png</bitmap>
+						<bitmap>icons/16x16/network_ethernet.png</bitmap>
+					</imagelist-small>
+				</object>
+			</object>
+			<object class="sizeritem">
+				<option>1</option>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxSimplebook" name="IDC_NOTEBOOK">
+					<object class="simplebookpage">
+						<!-- Motherboard -->
+						<selected>1</selected>
+						<object class="wxPanel">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxFlexGridSizer">
+								<rows>0</rows>
+								<cols>3</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols>1</growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<size>80,-1</size>
+										<label>機型:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBO1">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>350,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxBitmapButton" name="IDC_CONFIGUREMOD">
+										<bitmap>icons/16x16/setting_tools.png</bitmap>
+										<default>0</default>
+									</object>
+								</object>
+                                                                <object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<size>80,-1</size>
+										<label>CPU:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBOCPUM">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>120,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBO3">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>220,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+
+                                                                <object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<size>80,-1</size>
+										<label>FPU:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBOFPU">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>120,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+
+
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxCheckBox" name="IDC_CHECKDYNAREC">
+										<label>動態轉譯器</label>
+										<checked>0</checked>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>記憶體:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxSpinCtrl" name="IDC_MEMSPIN">
+												<style>wxSP_ARROW_KEYS</style>
+												<value>0</value>
+												<min>0</min>
+												<max>10</max>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<object class="wxStaticText" name="IDC_TEXT_MB">
+												<label>MB</label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>等待狀態:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBOWS">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>350,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxCheckBox" name="IDC_CHECKSYNC">
+										<label>虛擬機時間與主機同步</label>
+										<checked>0</checked>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="simplebookpage">
+						<!-- Video -->
+						<selected>0</selected>
+						<object class="wxPanel">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxFlexGridSizer">
+								<rows>0</rows>
+								<cols>3</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols>1</growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<size>80,-1</size>
+										<label>裝置:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBOVID">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>350,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxBitmapButton" name="IDC_CONFIGUREVID">
+										<bitmap>icons/16x16/setting_tools.png</bitmap>
+										<default>0</default>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<size>80,-1</size>
+										<label>速度模式:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxComboBox" name="IDC_COMBOSPD">
+										<style>wxCB_DROPDOWN | wxCB_READONLY</style>
+										<value></value>
+										<content />
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>1</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxCheckBox" name="IDC_CHECKVOODOO">
+												<label>啟用巫毒卡</label>
+												<checked>0</checked>
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxBitmapButton" name="IDC_CONFIGUREVOODOO">
+										<bitmap>icons/16x16/setting_tools.png</bitmap>
+										<default>0</default>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="simplebookpage">
+						<!-- Sound -->
+						<selected>0</selected>
+						<object class="wxPanel">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxFlexGridSizer">
+								<rows>0</rows>
+								<cols>3</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols>1</growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<size>80,-1</size>
+										<label>裝置:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBOSND">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>350,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxBitmapButton" name="IDC_CONFIGURESND">
+										<bitmap>icons/16x16/setting_tools.png</bitmap>
+										<default>0</default>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxCheckBox" name="IDC_CHECK3">
+										<label>CMS / Game Blaster</label>
+										<checked>0</checked>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxCheckBox" name="IDC_CHECKGUS">
+										<label>Gravis Ultrasound</label>
+										<checked>0</checked>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxCheckBox" name="IDC_CHECKSSI">
+										<label>Innovation SSI-2001</label>
+										<checked>0</checked>
+									</object>
+								</object>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+
+
+							</object>
+						</object>
+					</object>
+					<object class="simplebookpage">
+						<!-- Drives -->
+						<selected>0</selected>
+						<object class="wxPanel" name="PANEL_DRIVES">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxFlexGridSizer">
+								<rows>0</rows>
+								<cols>1</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols>0</growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>0</border>
+									<object class="wxFlexGridSizer">
+										<rows>0</rows>
+										<cols>3</cols>
+										<vgap>0</vgap>
+										<hgap>0</hgap>
+										<growablecols>1</growablecols>
+										<growablerows></growablerows>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<object class="wxStaticText">
+												<size>80,-1</size>
+												<label>硬碟控制器:</label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<object class="wxBoxSizer">
+												<orient>wxHORIZONTAL</orient>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALL</flag>
+													<border>5</border>
+													<object class="wxComboBox" name="IDC_COMBOHDD">
+														<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+														<size>350,-1</size>
+														<value></value>
+														<content />
+													</object>
+												</object>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxBitmapButton" name="IDC_CONFIGUREHDD">
+												<bitmap>icons/16x16/setting_tools.png</bitmap>
+												<default>0</default>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<object class="wxStaticText">
+												<size>80,-1</size>
+												<label>軟碟機 A:</label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<object class="wxBoxSizer">
+												<orient>wxHORIZONTAL</orient>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALL</flag>
+													<border>5</border>
+													<object class="wxComboBox" name="IDC_COMBODRA">
+														<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+														<size>350,-1</size>
+														<value></value>
+														<content />
+													</object>
+												</object>
+											</object>
+										</object>
+										<object class="spacer">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<size>0,0</size>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<object class="wxStaticText">
+												<size>80,-1</size>
+												<label>軟碟機 B:</label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<object class="wxBoxSizer">
+												<orient>wxHORIZONTAL</orient>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALL</flag>
+													<border>5</border>
+													<object class="wxComboBox" name="IDC_COMBODRB">
+														<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+														<size>350,-1</size>
+														<value></value>
+														<content />
+													</object>
+												</object>
+											</object>
+										</object>
+										<object class="spacer">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<size>0,0</size>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<object class="wxStaticText">
+												<size>80,-1</size>
+												<label>光碟機型號:</label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<object class="wxBoxSizer">
+												<orient>wxHORIZONTAL</orient>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALL</flag>
+													<border>5</border>
+													<object class="wxComboBox" name="IDC_COMBO_CDMODEL">
+														<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+														<size>350,-1</size>
+														<value></value>
+														<content />
+													</object>
+												</object>
+											</object>
+										</object>
+										<object class="spacer">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<size>0,0</size>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<object class="wxStaticText">
+												<size>80,-1</size>
+												<label>光碟讀取倍速:</label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<object class="wxBoxSizer">
+												<orient>wxHORIZONTAL</orient>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALL</flag>
+													<border>5</border>
+													<object class="wxComboBox" name="IDC_COMBO_CDSPEED">
+														<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+														<size>350,-1</size>
+														<value></value>
+														<content />
+													</object>
+												</object>
+											</object>
+										</object>
+										<object class="spacer">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<size>0,0</size>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxEXPAND | wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticLine">
+										<style>wxLI_HORIZONTAL</style>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND | wxALL</flag>
+									<border>5</border>
+									<object class="wxChoicebook" name="IDC_HDCBOOK">
+										<style>wxCHB_DEFAULT</style>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="simplebookpage">
+						<!-- Ports -->
+						<selected>0</selected>
+						<object class="wxPanel">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxFlexGridSizer">
+								<rows>0</rows>
+								<cols>3</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols>1</growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<size>80,-1</size>
+										<label>並列埠裝置:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBOLPT1">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>350,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxBitmapButton" name="IDC_CONFIGURELPT1">
+										<bitmap>icons/16x16/setting_tools.png</bitmap>
+										<default>0</default>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="simplebookpage">
+						<!-- Mouse -->
+						<selected>0</selected>
+						<object class="wxPanel">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxFlexGridSizer">
+								<rows>0</rows>
+								<cols>2</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols>1</growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<size>80,-1</size>
+										<label>滑鼠:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBOMOUSE">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>350,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="simplebookpage">
+						<selected>0</selected>
+						<object class="wxPanel">
+							<style>wxTAB_TRAVERSAL</style>
+							<object class="wxFlexGridSizer">
+								<rows>2</rows>
+								<cols>0</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols></growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<object class="wxFlexGridSizer">
+										<rows>0</rows>
+										<cols>4</cols>
+										<vgap>0</vgap>
+										<hgap>0</hgap>
+										<growablecols>1</growablecols>
+										<growablerows></growablerows>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+											<border>5</border>
+											<object class="wxStaticText">
+												<size>80,-1</size>
+												<label>遊戲搖桿:</label>
+												<wrap>-1</wrap>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>1</option>
+											<flag>wxEXPAND</flag>
+											<border>5</border>
+											<object class="wxBoxSizer">
+												<orient>wxHORIZONTAL</orient>
+												<object class="sizeritem">
+													<option>0</option>
+													<flag>wxALL</flag>
+													<border>5</border>
+													<object class="wxComboBox" name="IDC_COMBOJOY">
+														<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+														<size>350,-1</size>
+														<value></value>
+														<content />
+													</object>
+												</object>
+											</object>
+										</object>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<object class="wxGridSizer">
+										<rows>0</rows>
+										<cols>4</cols>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxButton" name="IDC_JOY1">
+												<label>搖桿 1...</label>
+												<default>1</default>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxButton" name="IDC_JOY2">
+												<label>搖桿 2...</label>
+												<default>1</default>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxButton" name="IDC_JOY3">
+												<label>搖桿 3...</label>
+												<default>1</default>
+											</object>
+										</object>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxButton" name="IDC_JOY4">
+												<label>搖桿 4...</label>
+												<default>1</default>
+											</object>
+										</object>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="simplebookpage">
+						<!-- Ethernet -->
+						<label></label>
+						<selected>0</selected>
+						<object class="wxPanel" name="m_panelnet">
+                                                        <style>wxTAB_TRAVERSAL</style>
+							<object class="wxFlexGridSizer">
+								<rows>0</rows>
+								<cols>2</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols>1</growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText" name="m_staticText70">
+										<size>80,-1</size>
+										<label>網路卡:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxBoxSizer">
+										<orient>wxHORIZONTAL</orient>
+										<object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxComboBox" name="IDC_COMBO_NETCARD">
+												<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+												<size>350,-1</size>
+												<value></value>
+												<content />
+											</object>
+										</object>
+                                                                                <object class="sizeritem">
+											<option>0</option>
+											<flag>wxALL</flag>
+											<border>5</border>
+											<object class="wxBitmapButton" name="IDC_CONFIGURE_NETCARD">
+												<style>wxBU_AUTODRAW</style>
+												<bitmap>icons/16x16/setting_tools.png</bitmap>
+												<default>0</default>
+											</object>
+										</object>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+			<object class="spacer"></object>
+			<object class="sizeritem">
+				<option>1</option>
+				<flag>wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxBoxSizer">
+					<orient>wxHORIZONTAL</orient>
+					<object class="spacer">
+						<option>1</option>
+						<flag>wxEXPAND</flag>
+						<border>5</border>
+						<size>0,0</size>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxButton" name="wxID_OK">
+							<label>確定</label>
+							<default>1</default>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxButton" name="wxID_CANCEL">
+							<label>取消</label>
+							<default>0</default>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+
+		<object class="wxPanel" name="IDC_HDPANEL[0]">
+			<style>wxTAB_TRAVERSAL</style>
+			<object class="wxFlexGridSizer">
+				<rows>0</rows>
+				<cols>3</cols>
+				<vgap>0</vgap>
+				<hgap>0</hgap>
+				<growablecols>2</growablecols>
+				<growablerows></growablerows>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[0]">
+						<size>75,-1</size>
+						<label>裝置類型:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>															
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_COMBODRIVETYPE[0]">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxBitmapButton" name="IDC_NEW[0]">
+								<tooltip>新增</tooltip>
+								<bitmap>icons/16x16/drive_add.png</bitmap>
+								<default>0</default>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_FILE[0]">
+						<tooltip>瀏覽</tooltip>
+						<bitmap>icons/16x16/folder.png</bitmap>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[1]">
+						<label>檔案:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxTextCtrl" name="IDC_EDIT_FN[0]">
+						<style>wxTE_READONLY</style>
+						<size>350,-1</size>
+						<value></value>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_EJECT[0]">
+						<bitmap>icons/16x16/control_eject.png</bitmap>
+						<tooltip>退片</tooltip>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>4</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols>1,3</growablecols>
+						<growablerows></growablerows>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[2]">
+								<label>磁區:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_SPT[0]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[3]">
+								<label>讀頭:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_HPC[0]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[4]">
+								<label>磁柱:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_CYL[0]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[5]">
+								<label>容量:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_TEXT_SIZE[0]">
+								<value></value>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+			</object>
+		</object>
+		<object class="wxPanel" name="IDC_HDPANEL[1]">
+			<style>wxTAB_TRAVERSAL</style>
+			<object class="wxFlexGridSizer">
+				<rows>0</rows>
+				<cols>3</cols>
+				<vgap>0</vgap>
+				<hgap>0</hgap>
+				<growablecols>2</growablecols>
+				<growablerows></growablerows>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[10]">
+						<size>75,-1</size>
+						<label>裝置類型:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>															
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_COMBODRIVETYPE[1]">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxBitmapButton" name="IDC_NEW[1]">
+								<tooltip>新增</tooltip>
+								<bitmap>icons/16x16/drive_add.png</bitmap>
+								<default>0</default>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_FILE[1]">
+						<tooltip>瀏覽</tooltip>
+						<bitmap>icons/16x16/folder.png</bitmap>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[11]">
+						<label>檔案:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxTextCtrl" name="IDC_EDIT_FN[1]">
+						<style>wxTE_READONLY</style>
+						<size>350,-1</size>
+						<value></value>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_EJECT[1]">
+						<bitmap>icons/16x16/control_eject.png</bitmap>
+						<tooltip>退片</tooltip>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>4</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols>1,3</growablecols>
+						<growablerows></growablerows>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[12]">
+								<label>磁區:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_SPT[1]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[13]">
+								<label>讀頭:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_HPC[1]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[14]">
+								<label>磁柱:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_CYL[1]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[15]">
+								<label>容量:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_TEXT_SIZE[1]">
+								<value></value>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+			</object>
+		</object>
+		<object class="wxPanel" name="IDC_HDPANEL[2]">
+			<style>wxTAB_TRAVERSAL</style>
+			<object class="wxFlexGridSizer">
+				<rows>0</rows>
+				<cols>3</cols>
+				<vgap>0</vgap>
+				<hgap>0</hgap>
+				<growablecols>2</growablecols>
+				<growablerows></growablerows>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[20]">
+						<size>75,-1</size>
+						<label>Type:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>															
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_COMBODRIVETYPE[2]">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxBitmapButton" name="IDC_NEW[2]">
+								<tooltip>新增</tooltip>
+								<bitmap>icons/16x16/drive_add.png</bitmap>
+								<default>0</default>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_FILE[2]">
+						<tooltip>瀏覽</tooltip>
+						<bitmap>icons/16x16/folder.png</bitmap>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[21]">
+						<label>File:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxTextCtrl" name="IDC_EDIT_FN[2]">
+						<style>wxTE_READONLY</style>
+						<size>350,-1</size>
+						<value></value>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_EJECT[2]">
+						<bitmap>icons/16x16/control_eject.png</bitmap>
+						<tooltip>退片</tooltip>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>4</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols>1,3</growablecols>
+						<growablerows></growablerows>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[22]">
+								<label>磁區:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_SPT[2]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[23]">
+								<label>讀頭:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_HPC[2]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[24]">
+								<label>磁柱:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_CYL[2]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[25]">
+								<label>容量:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_TEXT_SIZE[2]">
+								<value></value>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+			</object>
+		</object>
+		<object class="wxPanel" name="IDC_HDPANEL[3]">
+			<style>wxTAB_TRAVERSAL</style>
+			<object class="wxFlexGridSizer">
+				<rows>0</rows>
+				<cols>3</cols>
+				<vgap>0</vgap>
+				<hgap>0</hgap>
+				<growablecols>2</growablecols>
+				<growablerows></growablerows>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[30]">
+						<size>75,-1</size>
+						<label>裝置類型:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>															
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_COMBODRIVETYPE[3]">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxBitmapButton" name="IDC_NEW[3]">
+								<tooltip>新增</tooltip>
+								<bitmap>icons/16x16/drive_add.png</bitmap>
+								<default>0</default>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_FILE[3]">
+						<tooltip>瀏覽</tooltip>
+						<bitmap>icons/16x16/folder.png</bitmap>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[31]">
+						<label>File:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxTextCtrl" name="IDC_EDIT_FN[3]">
+						<style>wxTE_READONLY</style>
+						<size>350,-1</size>
+						<value></value>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_EJECT[3]">
+						<bitmap>icons/16x16/control_eject.png</bitmap>
+						<tooltip>退片</tooltip>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>4</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols>1,3</growablecols>
+						<growablerows></growablerows>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[32]">
+								<label>磁區:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_SPT[3]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[33]">
+								<label>讀頭:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_HPC[3]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[34]">
+								<label>磁柱:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_CYL[3]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[35]">
+								<label>容量:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_TEXT_SIZE[3]">
+								<value></value>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+			</object>
+		</object>
+		<object class="wxPanel" name="IDC_HDPANEL[4]">
+			<style>wxTAB_TRAVERSAL</style>
+			<object class="wxFlexGridSizer">
+				<rows>0</rows>
+				<cols>3</cols>
+				<vgap>0</vgap>
+				<hgap>0</hgap>
+				<growablecols>2</growablecols>
+				<growablerows></growablerows>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[40]">
+						<size>75,-1</size>
+						<label>裝置類型:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>															
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_COMBODRIVETYPE[4]">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxBitmapButton" name="IDC_NEW[4]">
+								<tooltip>新增</tooltip>
+								<bitmap>icons/16x16/drive_add.png</bitmap>
+								<default>0</default>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_FILE[4]">
+						<tooltip>瀏覽</tooltip>
+						<bitmap>icons/16x16/folder.png</bitmap>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[41]">
+						<label>File:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxTextCtrl" name="IDC_EDIT_FN[4]">
+						<style>wxTE_READONLY</style>
+						<size>350,-1</size>
+						<value></value>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_EJECT[4]">
+						<bitmap>icons/16x16/control_eject.png</bitmap>
+						<tooltip>退片</tooltip>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>4</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols>1,3</growablecols>
+						<growablerows></growablerows>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[42]">
+								<label>磁區:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_SPT[4]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[43]">
+								<label>讀頭:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_HPC[4]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[44]">
+								<label>磁柱:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_CYL[4]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[45]">
+								<label>容量:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_TEXT_SIZE[4]">
+								<value></value>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+			</object>
+		</object>
+		<object class="wxPanel" name="IDC_HDPANEL[5]">
+			<style>wxTAB_TRAVERSAL</style>
+			<object class="wxFlexGridSizer">
+				<rows>0</rows>
+				<cols>3</cols>
+				<vgap>0</vgap>
+				<hgap>0</hgap>
+				<growablecols>2</growablecols>
+				<growablerows></growablerows>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[50]">
+						<size>75,-1</size>
+						<label>裝置類型:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>															
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_COMBODRIVETYPE[5]">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxBitmapButton" name="IDC_NEW[5]">
+								<tooltip>新增</tooltip>
+								<bitmap>icons/16x16/drive_add.png</bitmap>
+								<default>0</default>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_FILE[5]">
+						<tooltip>瀏覽</tooltip>
+						<bitmap>icons/16x16/folder.png</bitmap>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[51]">
+						<label>File:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxTextCtrl" name="IDC_EDIT_FN[5]">
+						<style>wxTE_READONLY</style>
+						<size>350,-1</size>
+						<value></value>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_EJECT[5]">
+						<bitmap>icons/16x16/control_eject.png</bitmap>
+						<tooltip>退片</tooltip>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>4</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols>1,3</growablecols>
+						<growablerows></growablerows>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[52]">
+								<label>磁區:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_SPT[5]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[53]">
+								<label>讀頭:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_HPC[5]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[54]">
+								<label>磁柱:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_CYL[5]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[55]">
+								<label>容量:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_TEXT_SIZE[5]">
+								<value></value>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+			</object>
+		</object>
+		<object class="wxPanel" name="IDC_HDPANEL[6]">
+			<style>wxTAB_TRAVERSAL</style>
+			<object class="wxFlexGridSizer">
+				<rows>0</rows>
+				<cols>3</cols>
+				<vgap>0</vgap>
+				<hgap>0</hgap>
+				<growablecols>2</growablecols>
+				<growablerows></growablerows>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[60]">
+						<size>75,-1</size>
+						<label>裝置類型:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>															
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_COMBODRIVETYPE[6]">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxBitmapButton" name="IDC_NEW[6]">
+								<tooltip>新增</tooltip>
+								<bitmap>icons/16x16/drive_add.png</bitmap>
+								<default>0</default>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_FILE[6]">
+						<tooltip>瀏覽</tooltip>
+						<bitmap>icons/16x16/folder.png</bitmap>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="IDC_HDD_LABEL[61]">
+						<label>File:</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxALL|wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxTextCtrl" name="IDC_EDIT_FN[6]">
+						<style>wxTE_READONLY</style>
+						<size>350,-1</size>
+						<value></value>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBitmapButton" name="IDC_EJECT[6]">
+						<bitmap>icons/16x16/control_eject.png</bitmap>
+						<tooltip>退片</tooltip>
+						<default>0</default>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>4</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols>1,3</growablecols>
+						<growablerows></growablerows>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[62]">
+								<label>磁區:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_SPT[6]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[63]">
+								<label>讀頭:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_HPC[6]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[64]">
+								<label>磁柱:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_EDIT_CYL[6]">
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDD_LABEL[65]">
+								<label>容量:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_TEXT_SIZE[6]">
+								<value></value>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="spacer">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<size>0,0</size>
+				</object>
+			</object>
+		</object>
+	</object>
+	
+	<object class="wxDialog" name="HdNewDlg">
+		<title>新增磁碟c</title>
+		<centered>1</centered>
+		<object class="wxPanel" name="ROOT_PANEL">
+			<object class="wxFlexGridSizer">
+				<rows>0</rows>
+				<cols>1</cols>
+				<vgap>0</vgap>
+				<hgap>0</hgap>
+				<growablecols></growablecols>
+				<growablerows></growablerows>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>3</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols>1</growablecols>
+						<growablerows></growablerows>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText">
+								<label>映像格式:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_HDFORMAT">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+							<border>5</border>
+							<object class="wxStaticText">
+								<size>80,-1</size>
+								<label>檔案位置:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxTextCtrl" name="IDC_EDITC">
+								<size>350,-1</size>
+								<value></value>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxBitmapButton" name="IDC_CFILE">
+								<style>wxBU_AUTODRAW</style>
+								<bitmap>icons/16x16/folder.png</bitmap>
+								<default>0</default>
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<object class="wxFlexGridSizer">
+								<rows>0</rows>
+								<cols>4</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols></growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>磁區:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxTextCtrl" name="IDC_EDIT1">
+										<value></value>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>讀頭:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxTextCtrl" name="IDC_EDIT2">
+										<value></value>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>磁柱:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxTextCtrl" name="IDC_EDIT3">
+										<value></value>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>容量 (MB):</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxTextCtrl" name="IDC_EDIT4">
+										<value></value>
+									</object>
+								</object>
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText">
+								<label>硬碟類型:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_HDTYPE">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_HDBLOCKSIZELABEL">
+								<label>Block size:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_HDBLOCKSIZE">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxButton" name="wxID_OK">
+								<label>確定</label>
+								<default>1</default>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxButton" name="wxID_CANCEL">
+								<label>取消</label>
+								<default>0</default>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+
+	<object class="wxDialog" name="HdSizeDlg">
+		<title>硬碟參數</title>
+		<centered>1</centered>
+		<object class="wxPanel" name="ROOT_PANEL">
+			<object class="wxFlexGridSizer">
+				<rows>0</rows>
+				<cols>1</cols>
+				<vgap>0</vgap>
+				<hgap>0</hgap>
+				<growablecols></growablecols>
+				<growablerows></growablerows>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+					<border>5</border>
+					<object class="wxStaticText">
+						<label>這些初始設定是由您的檔案大小估計</label>
+						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>3</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols>1</growablecols>
+						<growablerows></growablerows>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<object class="wxFlexGridSizer">
+								<rows>0</rows>
+								<cols>4</cols>
+								<vgap>0</vgap>
+								<hgap>0</hgap>
+								<growablecols></growablecols>
+								<growablerows></growablerows>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>磁區:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxTextCtrl" name="IDC_EDIT1">
+										<value></value>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>讀頭:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxTextCtrl" name="IDC_EDIT2">
+										<value></value>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>磁柱:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALL</flag>
+									<border>5</border>
+									<object class="wxTextCtrl" name="IDC_EDIT3">
+										<value></value>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText">
+										<label>容量:</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<option>0</option>
+									<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+									<border>5</border>
+									<object class="wxStaticText" name="IDC_TEXT1">
+										<label>0mb</label>
+										<wrap>-1</wrap>
+									</object>
+								</object>
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL | wxALIGN_CENTER_VERTICAL</flag>
+							<border>5</border>
+							<object class="wxStaticText">
+								<label>硬碟類型:</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxComboBox" name="IDC_HDTYPE">
+								<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+								<size>350,-1</size>
+								<value></value>
+								<content />
+							</object>
+						</object>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>
+						<object class="spacer">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<size>0,0</size>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxButton" name="wxID_OK">
+								<label>確定</label>
+								<default>1</default>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxButton" name="wxID_CANCEL">
+								<label>取消</label>
+								<default>0</default>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+
+	<object class="wxDialog" name="ConfigureSelectionDlg">
+		<title>PCem 設定總管</title>
+		<centered>1</centered>
+		<object class="wxFlexGridSizer">
+			<rows>1</rows>
+			<cols>1</cols>
+			<vgap>0</vgap>
+			<hgap>0</hgap>
+			<growablecols>0</growablecols>
+			<growablerows>0</growablerows>
+			<object class="sizeritem">
+				<option>1</option>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>5</border>
+				<object class="wxFlexGridSizer">
+					<rows>2</rows>
+					<cols>2</cols>
+					<vgap>0</vgap>
+					<hgap>0</hgap>
+					<growablecols>0</growablecols>
+					<growablerows>0</growablerows>
+					<object class="sizeritem">
+						<option>1</option>
+						<flag>wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxBoxSizer">
+							<orient>wxVERTICAL</orient>
+							<object class="sizeritem">
+								<option>1</option>
+								<flag>wxALL|wxEXPAND</flag>
+								<border>5</border>
+								<object class="wxListBox" name="IDC_LIST">
+									<style>wxLB_SINGLE</style>
+									<size>250,300</size>
+									<content />
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>1</option>
+						<flag>wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxBoxSizer">
+							<orient>wxVERTICAL</orient>
+							<object class="sizeritem">
+								<option>0</option>
+								<flag>wxALL</flag>
+								<border>5</border>
+								<object class="wxBitmapButton" name="wxID_OK">
+									<style>wxBU_AUTODRAW</style>
+									<tooltip>啟動虛擬機</tooltip>
+									<bitmap>icons/32x32/control_play_blue.png</bitmap>
+									<default>1</default>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<option>0</option>
+								<flag>wxALL</flag>
+								<border>5</border>
+								<object class="wxBitmapButton" name="IDC_CONFIG">
+									<style>wxBU_AUTODRAW</style>
+									<tooltip>設定虛擬機</tooltip>
+									<bitmap>icons/32x32/setting_tools.png</bitmap>
+									<default>0</default>
+								</object>
+							</object>
+                                                        <object class="spacer">
+        							<option>1</option>
+        							<flag>wxEXPAND</flag>
+        							<border>5</border>
+        							<size>0,0</size>
+        						</object>
+        						<object class="sizeritem">
+        							<option>0</option>
+        							<flag>wxALL</flag>
+        							<border>5</border>
+        							<object class="wxBitmapButton" name="IDC_CONFIG_HOST">
+        								<style>wxBU_AUTODRAW</style>
+               								<tooltip>設定主機</tooltip>
+        								<bitmap>icons/32x32/widescreen.png</bitmap>
+        								<default>0</default>
+        							</object>
+        						</object>
+                                                </object>
+					</object>
+					<object class="sizeritem">
+						<option>1</option>
+						<flag>wxEXPAND</flag>
+						<border>5</border>
+						<object class="wxBoxSizer">
+							<orient>wxHORIZONTAL</orient>
+							<object class="sizeritem">
+								<option>0</option>
+								<flag>wxALL</flag>
+								<border>5</border>
+								<object class="wxBitmapButton" name="IDC_NEW">
+									<style>wxBU_AUTODRAW</style>
+									<tooltip>新增虛擬機</tooltip>
+									<bitmap>icons/32x32/computer_add.png</bitmap>
+									<default>0</default>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<option>0</option>
+								<flag>wxALL</flag>
+								<border>5</border>
+								<object class="wxBitmapButton" name="IDC_RENAME">
+									<style>wxBU_AUTODRAW</style>
+									<tooltip>重新命名這台虛擬機</tooltip>
+									<bitmap>icons/32x32/computer_edit.png</bitmap>
+									<default>0</default>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<option>0</option>
+								<flag>wxALL</flag>
+								<border>5</border>
+								<object class="wxBitmapButton" name="IDC_COPY">
+									<style>wxBU_AUTODRAW</style>
+									<tooltip>複製虛擬機</tooltip>
+									<bitmap>icons/32x32/computer_go.png</bitmap>
+									<default>0</default>
+								</object>
+							</object>
+							<object class="sizeritem">
+								<option>0</option>
+								<flag>wxALL</flag>
+								<border>5</border>
+								<object class="wxBitmapButton" name="IDC_DELETE">
+									<style>wxBU_AUTODRAW</style>
+									<tooltip>刪除虛擬機</tooltip>
+									<bitmap>icons/32x32/computer_delete.png</bitmap>
+									<default>0</default>
+								</object>
+							</object>
+						</object>
+					</object>
+					<object class="sizeritem">
+						<option>0</option>
+						<flag>wxALL</flag>
+						<border>5</border>
+						<object class="wxBitmapButton" name="wxID_CANCEL">
+							<style>wxBU_AUTODRAW</style>
+							<tooltip>離開</tooltip>
+							<bitmap>icons/32x32/door_in.png</bitmap>
+							<default>0</default>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+
+	<object class="wxDialog" name="ShaderManagerDlg">
+		<style>wxDEFAULT_DIALOG_STYLE|wxSTAY_ON_TOP</style>
+		<title>PCem 渲染器管理</title>
+		<centered>1</centered>
+		<object class="wxPanel" name="ROOT_PANEL">
+			<object class="wxBoxSizer">
+				<object class="sizeritem">
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>
+						<object class="sizeritem">
+							<flag>wxALL</flag>
+							<border>0</border>
+							<object class="wxListBox" name="IDC_LIST">
+								<style>wxLB_SINGLE</style>
+								<size>300,350</size>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<flag>wxEXPAND</flag>
+							<border>0</border>
+							<object class="wxBoxSizer">
+								<orient>wxVERTICAL</orient>
+								
+								<object class="sizeritem">
+									<flag>wxALL</flag>
+									<border>0</border>
+									<object class="wxButton" name="IDC_ADD">
+										<label>新增</label>
+									</object>
+								</object>
+	
+								<object class="sizeritem">
+									<flag>wxALL</flag>
+									<border>0</border>
+									<object class="wxButton" name="IDC_REMOVE">
+										<label>移除</label>
+									</object>
+								</object>
+																
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+								</object>
+								
+								<object class="sizeritem">
+									<flag>wxALL</flag>
+									<border>0</border>
+									<object class="wxButton" name="IDC_CONFIG">
+										<label>設定...</label>
+									</object>
+								</object>
+								
+								<object class="sizeritem">
+									<flag>wxALL</flag>
+									<border>0</border>
+									<object class="wxButton" name="IDC_MOVE_UP">
+										<label>上移</label>
+									</object>
+								</object>
+								
+								<object class="sizeritem">
+									<flag>wxALL</flag>
+									<border>0</border>
+									<object class="wxButton" name="IDC_MOVE_DOWN">
+										<label>下移</label>
+									</object>
+								</object>
+								
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+								</object>
+
+								<object class="sizeritem">
+									<flag>wxALL</flag>
+									<border>0</border>
+									<object class="wxButton" name="IDC_APPLY">
+										<label>套用</label>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<flag>wxALL</flag>
+									<border>0</border>
+									<object class="wxButton" name="wxID_OK">
+										<label>確定</label>
+										<default>1</default>
+									</object>
+								</object>
+								<object class="sizeritem">
+									<flag>wxALL</flag>
+									<border>0</border>
+									<object class="wxButton" name="wxID_CANCEL">
+										<label>取消</label>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+
+	<object class="wxDialog" name="ConfirmRememberDlg">
+		<style>wxDEFAULT_DIALOG_STYLE|wxSTAY_ON_TOP</style>
+		<title>PCem</title>
+		<centered>1</centered>
+		<object class="wxPanel" name="ROOT_PANEL">
+			<object class="wxBoxSizer">
+				<orient>wxVERTICAL</orient>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxStaticBitmap">
+								<bitmap stock_id="wxART_QUESTION" stock_client="wxART_CMN_DIALOG"/>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALIGN_CENTER|wxALL</flag>
+							<border>5</border>
+							<object class="wxStaticText" name="IDC_CONFIRM_LABEL">
+								<label>IDC_CONFIRM_LABEL</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxCheckBox" name="IDC_CONFIRM_REMEMBER">
+						<label>IDC_CONFIRM_REMEMBER</label>
+						<checked>0</checked>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxStdDialogButtonSizer">
+						<object class="button">
+							<flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+							<border>5</border>
+							<object class="wxButton" name="wxID_OK">
+								<label>確定(_O)</label>
+								<default>1</default>
+							</object>
+						</object>
+						<object class="button">
+							<flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+							<border>5</border>
+							<object class="wxButton" name="wxID_CANCEL">
+								<label>取消(_C)</label>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+	
+	<object class="wxDialog" name="CustomResolutionDlg">
+		<style>wxDEFAULT_DIALOG_STYLE|wxSTAY_ON_TOP</style>
+		<title>自訂解析度</title>
+		<centered>1</centered>
+		<object class="wxPanel" name="ROOT_PANEL">
+			<object class="wxBoxSizer">
+				<orient>wxVERTICAL</orient>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxBoxSizer">
+						<orient>wxHORIZONTAL</orient>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxSpinCtrl" name="IDC_WIDTH">
+								<style>wxSP_ARROW_KEYS</style>
+								<value>640</value>
+								<min>1</min>
+								<max>16384</max>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALIGN_CENTER_VERTICAL|wxALL</flag>
+							<border>5</border>
+							<object class="wxStaticText">
+								<label>x</label>
+								<wrap>-1</wrap>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>0</option>
+							<flag>wxALL</flag>
+							<border>5</border>
+							<object class="wxSpinCtrl" name="IDC_HEIGHT">
+								<style>wxSP_ARROW_KEYS</style>
+								<value>480</value>
+								<min>1</min>
+								<max>16384</max>
+							</object>
+						</object>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxEXPAND | wxALL</flag>
+					<border>5</border>
+					<object class="wxStaticLine">
+						<style>wxLI_HORIZONTAL</style>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>1</option>
+					<flag>wxEXPAND</flag>
+					<border>5</border>
+					<object class="wxStdDialogButtonSizer">
+						<object class="button">
+							<flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+							<border>5</border>
+							<object class="wxButton" name="wxID_OK">
+								<label>確定(&amp;O)</label>
+								<default>1</default>
+							</object>
+						</object>
+						<object class="button">
+							<flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+							<border>5</border>
+							<object class="wxButton" name="wxID_CANCEL">
+								<label>取消(&amp;C)</label>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+	
+	<object class="wxDialog" name="AboutDlg">
+		<style>wxDEFAULT_DIALOG_STYLE</style>
+		<title></title>
+		<centered>1</centered>
+		<object class="wxPanel" name="ROOT_PANEL">
+			<object class="wxBoxSizer">
+				<orient>wxVERTICAL</orient>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxStaticText" name="VERSION_TEXT">
+						<label>PCem PCEM-VERSION-STRING\n版權所有 (C) 2007-2020 Sarah Walker 和其他貢獻者\n版權所有 (C) 2021-2022 Michael Manley, Sarah Walker 和其他貢獻者\n\nhttps://pcem-emulator.co.uk/\n\n本程式透過 GNU 通用公開授權第二版進行授權。\n詳情請見 COPYING 檔案\n\n工具列圖示由 Roundicons 製作(https://roundicons.com/) 與 www.flaticon.com\n其他圖示則是由 FatCow (http://www.fatcow.com/free-icons/) 提供 \n\n 繁體中文介面由 Wayne Chiu 翻譯 (https://github.com/tlchiu40209)</label>						<wrap>-1</wrap>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxEXPAND | wxALL</flag>
+					<border>5</border>
+					<object class="wxStaticLine">
+						<style>wxLI_HORIZONTAL</style>
+					</object>
+				</object>
+				<object class="sizeritem">
+					<option>0</option>
+					<flag>wxALL</flag>
+					<border>5</border>
+					<object class="wxButton" name="wxID_OK">
+						<label>確定(_O)</label>
+						<default>1</default>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+
+	<object class="wxDialog" name="HostConfig">
+		<style>wxDEFAULT_DIALOG_STYLE|wxSTAY_ON_TOP</style>
+		<size>499,175</size>
+		<title>主機設定</title>
+		<centered>1</centered>
+		<object class="wxBoxSizer">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<option>1</option>
+				<flag>wxEXPAND | wxALL</flag>
+				<border>5</border>
+				<object class="wxPanel" name="m_panel20">
+					<style>wxTAB_TRAVERSAL</style>
+					<object class="wxFlexGridSizer">
+						<rows>0</rows>
+						<cols>1</cols>
+						<vgap>0</vgap>
+						<hgap>0</hgap>
+						<growablecols></growablecols>
+						<growablerows></growablerows>
+						<object class="sizeritem">
+							<option>1</option>
+							<flag>wxEXPAND | wxALL</flag>
+							<border>5</border>
+							<object class="wxNotebook" name="m_notebook2">
+								<object class="notebookpage">
+									<label></label>
+									<selected>0</selected>
+									<bitmap>icons/32x32/network_ethernet.png</bitmap>
+									<object class="wxPanel" name="m_panel19">
+										<style>wxTAB_TRAVERSAL</style>
+										<object class="wxFlexGridSizer">
+											<rows>0</rows>
+											<cols>2</cols>
+											<vgap>0</vgap>
+											<hgap>0</hgap>
+											<growablecols></growablecols>
+											<growablerows></growablerows>
+											<object class="sizeritem">
+												<option>0</option>
+												<flag>wxALL</flag>
+												<border>5</border>
+												<object class="wxStaticText" name="m_staticText72">
+													<label>網路類型 :</label>
+													<wrap>-1</wrap>
+												</object>
+											</object>
+											<object class="sizeritem">
+												<option>0</option>
+												<flag>wxALL</flag>
+												<border>5</border>
+												<object class="wxComboBox" name="IDC_COMBO_NETWORK_TYPE">
+													<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+													<size>550,-1</size>
+													<value></value>
+													<content />
+												</object>
+											</object>
+											<object class="sizeritem">
+												<option>0</option>
+												<flag>wxALL</flag>
+												<border>5</border>
+												<object class="wxStaticText" name="m_staticText73">
+													<label>網路卡 :</label>
+													<wrap>-1</wrap>
+												</object>
+											</object>
+											<object class="sizeritem">
+												<option>0</option>
+												<flag>wxALL</flag>
+												<border>5</border>
+												<object class="wxComboBox" name="IDC_COMBO_NETWORK_DEVICE">
+													<style>wxCB_DROPDOWN|wxCB_READONLY</style>
+													<size>550,-1</size>
+													<value>Combo!</value>
+													<content />
+												</object>
+											</object>
+										</object>
+									</object>
+								</object>
+							</object>
+						</object>
+						<object class="sizeritem">
+							<option>1</option>
+							<flag>wxEXPAND</flag>
+							<border>5</border>
+							<object class="wxBoxSizer">
+								<orient>wxHORIZONTAL</orient>
+								<object class="spacer">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<size>0,0</size>
+								</object>
+								<object class="sizeritem">
+									<option>1</option>
+									<flag>wxEXPAND</flag>
+									<border>5</border>
+									<object class="wxStdDialogButtonSizer">
+										<object class="button">
+											<flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+											<border>5</border>
+											<object class="wxButton" name="wxID_OK">
+												<label>確定(&amp;O)</label>
+											</object>
+										</object>
+										<object class="button">
+											<flag>wxALIGN_CENTER_HORIZONTAL|wxALL</flag>
+											<border>5</border>
+											<object class="wxButton" name="wxID_CANCEL">
+												<label>取消(&amp;C)</label>
+											</object>
+										</object>
+									</object>
+								</object>
+							</object>
+						</object>
+					</object>
+				</object>
+			</object>
+		</object>
+	</object>
+</resource>
