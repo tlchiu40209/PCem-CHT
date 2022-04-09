@@ -2,7 +2,7 @@
 
 ---
 
-要下載預先編譯好 (For Windows x64) 的版本，請直接下載 latestRelease.zip
+要下載預先編譯好 (For Windows x64) 的版本，請直接 [Release](https://github.com/tlchiu40209/PCem-CHT/releases) 下載
 解壓縮後即可此用。另外因各電腦廠商之 ROM 有其著作權，請不要詢問為什麼沒有 ROM。
 
 另外，使用該軟體需要具備對於各種舊 PC 的基本常識，此並非 VirtualBox 或是 VMware。
@@ -37,13 +37,47 @@ PCem 是由 Sarah Walker 獨立維護的 x86 模擬器軟體
 ---
 
 如果您要自行編譯這個專案，而不下載預先編譯版本:
-1. 安裝 MSYS2，並啟動相對應環境 (如 MSYS2 MinGW x64)
-2. 依序安裝 SDL2 / wxxWidgets 3.x / OpenAL / CMake / Ninja (安裝時請注意對應)
-3. 在 Source Code 根目錄執行:
+Windows 作業系統 (MinGW)
+1. 安裝 MSYS2，並啟動相對應環境 (如 MSYS2 MinGW x64)，第一次啟動時，請先進行更新 :
+```sh
+pacman -Syuu
+```
+2. 安裝基礎編譯環境 : 
+```sh
+pacman -Syu base-devel gcc
+```
+3. 安裝相關涵式庫 SDL2 / wxWidgets 3.x / OpenAL / CMake / Ninja (安裝時請注意對應)
+```sh
+pacman -Syu $MINGW_PACKAGE_PREFIX $MINGW_PACKAGE_PREFIX-ninja $MINGW_PACKAGE_PREFIX-cmake $MINGW_PACKAGE_PREFIX-gcc $MINGW_PACKAGE_PREFIX-pkg-config $MINGW_PACKAGE_PREFIX-openal $MINGW_PACKAGE_PREFIX-SDL2 $MINGW_PACKAGE_PREFIX-wxWidgets
+```
+4. 在 Source Code 根目錄執行:
 ```sh
 cmake -G "Ninja" -DMSYS=TRUE -DCMAKE_BUILD_TYPE=Release -DUSE_NETWORKING=ON .
 ninja
 ```
+
+Linux 作業系統 (Debian-based 9+ / RedHat-based EL8+):
+1. 安裝基本編譯環境 : 
+
+```sh
+[Debian-based] apt install build-essential
+[RedHat-based] dnf install make automake gcc gcc-c++ kernel-devel
+```
+
+2. 安裝相關涵式庫 SDL2 / wxWidgets 3.x / OpenAL / CMake / Ninja (安裝時請注意對應)
+
+```sh
+[Debian-based] apt install libsdl2-dev libwxgtk3.0-gtk3-dev libopenal-dev cmake extra-cmake-modules pkg-config ninja-build
+[RedHat-based] dnf install SDL2-devel wxGTK-devel wxGTK3-devel openal-soft-devel cmake ninja-build
+```
+
+3. 在 Source Code 跟目錄執行:
+```sh
+cmake -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DUSE_NETWORKING=ON .
+ninja
+```
+
+關於其他 CMake 選項與設定，請見 PCem Github 頁面。
 
 ---
 
