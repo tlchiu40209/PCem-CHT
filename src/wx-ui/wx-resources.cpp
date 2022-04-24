@@ -8336,6 +8336,6 @@ void InitXmlResource()
     XRC_ADD_FILE(wxT("XRC_resource/wx-resources.cpp$icons_32x32_computer_delete.png"), xml_res_file_24, xml_res_size_24, wxT("image/png"));
     XRC_ADD_FILE(wxT("XRC_resource/wx-resources.cpp$icons_32x32_door_in.png"), xml_res_file_25, xml_res_size_25, wxT("image/png"));
     XRC_ADD_FILE(wxT("XRC_resource/wx-resources.cpp$icons_32x32_network_ethernet.png"), xml_res_file_26, xml_res_size_26, wxT("image/png"));
-    XRC_ADD_FILE(wxT("XRC_resource/wx-resources.cpp$C__msys64_home_Wayne_pcem-dev_src_wx-ui_pc.xrc"), xml_res_file_27, xml_res_size_27, wxT("text/xml"));
-    wxXmlResource::Get()->Load(wxT("memory:XRC_resource/wx-resources.cpp$C__msys64_home_Wayne_pcem-dev_src_wx-ui_pc.xrc"));
+    XRC_ADD_FILE(wxT("XRC_resource/wx-resources.cpp$C__msys64_home_Wayne_PCem-CHT_src_wx-ui_pc.xrc"), xml_res_file_27, xml_res_size_27, wxT("text/xml"));
+    wxXmlResource::Get()->Load(wxT("memory:XRC_resource/wx-resources.cpp$C__msys64_home_Wayne_PCem-CHT_src_wx-ui_pc.xrc"));
 }

@@ -30,9 +30,14 @@ PCem 是由 Sarah Walker 獨立維護的 x86 模擬器軟體
 
 ---
 
-中文化 PCem 參照版本: [PCem vNEXT (Mar. 29, 2022)](https://github.com/sarah-walker-pcem/pcem/commit/85e1ef3ee4b5b1598957bfa95312f42a1eaef6e6)
-
+中文化 PCem 參照版本: [PCem vNEXT (Apr. 17, 2022)](https://github.com/sarah-walker-pcem/pcem/commit/f4a1ab9c5193ebeaa5ab7da3b613dc78a5614550)  
 編譯平台: Windows 10 x64
+
+---
+
+相較於 [Mar. 29, 2022](https://github.com/sarah-walker-pcem/pcem/commit/85e1ef3ee4b5b1598957bfa95312f42a1eaef6e6) 新增的功能:  
+- 新增對這些機器的支援: Hyundai SUPER-16T, Hyundai SUPER-16TE, Commodore PC10C
+- 新增對這些CD光碟機的模擬: Sony CDU311, Toshiba XM-5702B, GoldStar CRD-8160B, Creative CR-587-B/CR-588-B, BTC BCD36XH, Philips PCA403CD, Mitsumi CRMC-FX4820T
 
 ---
 

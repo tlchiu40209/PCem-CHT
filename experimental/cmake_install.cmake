@@ -1,4 +1,4 @@
-# Install script for directory: C:/msys64/home/Wayne/pcem-dev/experimental
+# Install script for directory: C:/msys64/home/Wayne/PCem-CHT/experimental
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
